@@ -1,0 +1,43 @@
+# Project: OTHALLO
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o TrangTri.o OTrong.o BanCo.o NguoiChoi.o BXH.o
+LINKOBJ  = main.o TrangTri.o OTrong.o BanCo.o NguoiChoi.o BXH.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = OTHELLO.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+TrangTri.o: TrangTri.cpp
+	$(CPP) -c TrangTri.cpp -o TrangTri.o $(CXXFLAGS)
+
+OTrong.o: OTrong.cpp
+	$(CPP) -c OTrong.cpp -o OTrong.o $(CXXFLAGS)
+
+BanCo.o: BanCo.cpp
+	$(CPP) -c BanCo.cpp -o BanCo.o $(CXXFLAGS)
+
+NguoiChoi.o: NguoiChoi.cpp
+	$(CPP) -c NguoiChoi.cpp -o NguoiChoi.o $(CXXFLAGS)
+
+BXH.o: BXH.cpp
+	$(CPP) -c BXH.cpp -o BXH.o $(CXXFLAGS)
